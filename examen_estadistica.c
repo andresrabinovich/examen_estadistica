@@ -1,35 +1,122 @@
+//PARA COMPILAR:
+//gcc examen_estadistica.c -o examen_estadistica -lgsl -lgslcblas -lm -lpthread
+
 #include <stdio.h>
 #include <math.h>
 #include <gsl/gsl_randist.h>
 #include <gsl/gsl_cdf.h>
 #include <time.h>
+#include <pthread.h>
 
+int hilos = 7;
+int m_desde = 10, m_hasta = 1100, n_desde = 10, n_hasta = 1100;
+int repeticiones = 100;
+gsl_rng *rng;  // random number generator
+float pv1[1090][1090];
+float pv2[1090][1090];
+
+void *myThreadFun(void *i);
 void normal(const gsl_rng * r, float mu, float *x, int n);
 float mean(float *x, int n);
 float var(float *x, int n);
 float var2(float *x, int n, float media);
+struct timespec start, finish;
 
 int main(void){
 
-    double packet_size;
-    long seed;
-    gsl_rng *rng;  // random number generator
-    rng = gsl_rng_alloc (gsl_rng_rand48);     // pick random number generator
-    seed = 12345;    
-    gsl_rng_set (rng, seed);                  // set seed
-    int repeticiones = 100;
-    int m_desde = 900, m_hasta = 1100, n_desde = 10, n_hasta = 1100;
-    float pv1[m_hasta-m_desde][n_hasta-n_desde];
-    float pv2[m_hasta-m_desde][n_hasta-n_desde];
-    
-    clock_t begin = clock();
-    for(int m = m_desde; m < m_hasta; m++){
-        clock_t beginp = clock();
-        for(int n = n_desde; n < n_hasta; n++){
+    long seed = 12345;
+	pthread_t pth[hilos];	// this is our thread identifier
+    int m, n, i;
+
+    FILE *f = fopen("resultado.csv", "w");
+	if (f == NULL) {
+        printf ("Error al abrir el archivo de resultados, errno = %d\n", errno);
+        return(1);
+    }	
+	
+	rng = gsl_rng_alloc (gsl_rng_rand48);     // pick random number generator
+    gsl_rng_set (rng, seed);                  // set seed	
+	
+	clock_t begin = clock();
+	
+	for(i = 0; i < hilos; i++){
+		int *id = malloc(sizeof(*id));
+		*id = i;
+		pthread_create(&pth[i],NULL,myThreadFun, id);
+	}
+	
+	for(i = 0; i < hilos; i++){
+		pthread_join(pth[i],NULL);
+	}
+	
+	
+    clock_t end = clock();
+    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
+
+    for(m = m_desde; m < m_hasta; m++){
+        for(n = n_desde; n < n_hasta; n++){
+            fprintf(f, "%d,%d,%f,%f\n", m, n, pv1[m-m_desde][n-n_desde], pv2[m-m_desde][n-n_desde]);
+        }
+    }
+    fclose(f);
+	printf("%f\n", time_spent);
+	//gsl_rng_free (rng);                       // dealloc the rng  
+    return(0);
+}
+
+void normal(const gsl_rng * r, float mu, float *x, int n){
+	int i;
+    for(i = 0; i < n; i++){ 
+        x[i] = gsl_ran_gaussian(r, 1) + mu;
+    }
+}
+
+float mean(float *x, int n){
+    float media = 0;
+	int i;
+    for(i = 0; i < n; i++){ 
+        media += x[i];
+    }
+    return(media/n);
+}
+
+float var2(float *x, int n, float media){
+    float var = 0;
+	int i;	
+    for(i = 0; i < n; i++){ 
+        var += pow((x[i]-media), 2);
+    }
+    return(var/(n-1));    
+}
+
+float var(float *x, int n){
+    float media = mean(x, n);
+    float var = 0;
+	int i;	
+    for(i = 0; i < n; i++){ 
+        var += pow((x[i]-media), 2);
+    }
+    return(var/(n-1));    
+}
+
+void *myThreadFun(void *tid){
+    // Store the value argument passed to this thread
+    int id = *((int *) tid);
+	free(tid);
+	struct timespec start, finish;
+	double elapsed;	
+	int carga = ceil((m_hasta - m_desde)/(float)hilos);
+	int desde = carga*id + m_desde;
+	int hasta = carga*(id+1) + m_desde;
+	if(hasta > m_hasta) hasta = m_hasta; //Corregimos los límites para que no se pase
+    int m, n, i;	
+	for(m = desde; m < hasta; m++){
+        clock_gettime(CLOCK_MONOTONIC, &start);
+        for(n = n_desde; n < n_hasta; n++){
             int df = m + n - 2;
             pv1[m-m_desde][n-n_desde] = 0;
             pv2[m-m_desde][n-n_desde] = 0;            
-            for(int i = 0; i < repeticiones; i++){
+            for(i = 0; i < repeticiones; i++){
                 float *x = (float *) malloc(m * sizeof(float));
                 float *y = (float *) malloc(n * sizeof(float));
                 normal(rng, 0.2, x, m);
@@ -53,60 +140,9 @@ int main(void){
             pv1[m-m_desde][n-n_desde] = pv1[m-m_desde][n-n_desde]/repeticiones;
             pv2[m-m_desde][n-n_desde] = pv2[m-m_desde][n-n_desde]/repeticiones;            
         }
-        clock_t endp = clock();
-        double time_spent = (double)(endp - beginp) / CLOCKS_PER_SEC;        
-        printf("[%d - %f]\n", m, time_spent);
+        clock_gettime(CLOCK_MONOTONIC, &finish);
+		elapsed = (finish.tv_sec - start.tv_sec);
+		elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+		printf("thread: %d (%d,%d) : [%d - %f]\n", id, desde, hasta-1, m, elapsed);
     }
-    clock_t end = clock();
-    double time_spent = (double)(end - begin) / CLOCKS_PER_SEC;
-        
-    /*
-    printf("%f\n", media_x);
-    printf("%f\n", media_y);    
-    printf("%f\n", var_x);
-    printf("%f\n", var_y); 
-    printf("%f\n", u1); 
-    */
-    FILE *f = fopen("resultado_2.csv", "w");
-    for(int m = m_desde; m < m_hasta; m++){
-        for(int n = n_desde; n < n_hasta; n++){
-            fprintf(f, "%d,%d,%f,%f\n", m, n, pv1[m-m_desde][n-n_desde], pv2[m-m_desde][n-n_desde]);
-        }
-    }
-    fclose(f);
-    printf("%f\n", time_spent);
-    gsl_rng_free (rng);                       // dealloc the rng  
-   
-    return(0);
-}
-
-void normal(const gsl_rng * r, float mu, float *x, int n){
-    for(int i = 0; i < n; i++){ 
-        x[i] = gsl_ran_gaussian(r, 1) + mu;
-    }
-}
-
-float mean(float *x, int n){
-    float media = 0;
-    for(int i = 0; i < n; i++){ 
-        media += x[i];
-    }
-    return(media/n);
-}
-
-float var2(float *x, int n, float media){
-    float var = 0;
-    for(int i = 0; i < n; i++){ 
-        var += pow((x[i]-media), 2);
-    }
-    return(var/(n-1));    
-}
-
-float var(float *x, int n){
-    float media = mean(x, n);
-    float var = 0;
-    for(int i = 0; i < n; i++){ 
-        var += pow((x[i]-media), 2);
-    }
-    return(var/(n-1));    
 }
