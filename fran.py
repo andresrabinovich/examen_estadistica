@@ -36,10 +36,30 @@ if __name__ == "__main__":
 	
 		
 	
-	
+n = 800
+m = 700
 
+a = []
+b = []
+for i in range(0, 2000):
+	x = np.random.normal(mu1, sigma1, size=m)
+	y = np.random.normal(mu2, sigma2, size=n)
+	df = n + m - 2
+	sx2 = s2(x)
+	sy2 = s2(y)
+	denominador = ( (1/m)+(1/n) )*(sx2+sy2) 
+	u1 = ( x.mean()-y.mean() ) * np.sqrt(df/denominador)
+	a.append(u1)
+	x = np.random.normal(mu2, sigma1, size=m)
+	y = np.random.normal(mu1, sigma2, size=n)
+	df = n + m - 2
+	sx2 = s2(x)
+	sy2 = s2(y)
+	denominador = ( (1/m)+(1/n) )*(sx2+sy2) 
+	u1 = ( x.mean()-y.mean() ) * np.sqrt(df/denominador)
+	b.append(u1)
 
-
-
-
+plt.hist(b)
+plt.hist(a)
+plt.show()
 
