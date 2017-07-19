@@ -11,7 +11,7 @@ rango_n = (10, 1100)
 a = np.zeros((rango_m[1]-rango_m[0], rango_n[1]-rango_n[0]))
 b = np.zeros((rango_m[1]-rango_m[0], rango_n[1]-rango_n[0]))
 
-archivo  = open("corridas/resultado_1.csv", "r") 
+archivo  = open("corridas/resultado_2.csv", "r") 
 
 for line in archivo:
 	m, n, g, h = line.split(",")
@@ -26,7 +26,7 @@ fig.colorbar(im)
 ax.axis('tight')
 plt.xlabel('m')
 plt.ylabel('n')
-plt.title(r'P-Value test U1 x $\backsim$ N(0.1, 1) y $\backsim$ N(0, 1)')
+plt.title(r'P-Value test U1 x $\backsim$ N(0.2, 1) y $\backsim$ N(0, 1)')
 plt.show()
 
 fig, ax = plt.subplots()
@@ -35,7 +35,7 @@ fig.colorbar(im)
 ax.axis('tight')
 plt.xlabel('m')
 plt.ylabel('n')
-plt.title(r'P-Value test U2 x $\backsim$ N(0.1, 1) y $\backsim$ N(0, 1)')
+plt.title(r'P-Value test U2 x $\backsim$ N(0.2, 1) y $\backsim$ N(0, 1)')
 plt.show()
 
 	
