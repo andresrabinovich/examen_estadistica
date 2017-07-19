@@ -8,7 +8,7 @@
 #include <time.h>
 #include <pthread.h>
 
-int hilos = 7;
+int hilos = 6;
 int m_desde = 10, m_hasta = 1100, n_desde = 10, n_hasta = 1100;
 int repeticiones = 100;
 gsl_rng *rng;  // random number generator
@@ -28,7 +28,7 @@ int main(void){
 	pthread_t pth[hilos];	// this is our thread identifier
     int m, n, i;
 
-    FILE *f = fopen("resultado.csv", "w");
+    FILE *f = fopen("corridas/resultado_1.csv", "w");
 	if (f == NULL) {
         printf ("Error al abrir el archivo de resultados, errno = %d\n", errno);
         return(1);
@@ -119,7 +119,7 @@ void *myThreadFun(void *tid){
             for(i = 0; i < repeticiones; i++){
                 float *x = (float *) malloc(m * sizeof(float));
                 float *y = (float *) malloc(n * sizeof(float));
-                normal(rng, 0.2, x, m);
+                normal(rng, 0.1, x, m);
                 normal(rng, 0, y, n);
                 float media_x = mean(x, m);
                 float media_y = mean(y, m);
