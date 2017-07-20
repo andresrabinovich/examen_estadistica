@@ -97,13 +97,13 @@ $100\alpha\%$.\\
 \begin{minipage}{0.45\textwidth}									
 \centering
 \includegraphics[width=0.9\textwidth]{imagenes/test_de_hipotesis}
-\captionof{figure}{Ejemplo de Error de Tipo I, Error de Tipo II y poder de test. Tomado de Frodsen\cite{frodesen}.}
+\captionof{figure}{Ejemplo de Error de Tipo I, Error de Tipo II y potencia de test. Tomado de Frodesen\cite{frodesen}.}
 \label{fig:test_de_hipotesis}
 \end{minipage}
 
 De ésta definición se desprende que existe una probabilidad $\alpha$ de rechazar $H_0$ cuando era en realidad verdadera, error conocido como Error de Tipo I.\\
-Por otro lado, el Error de Tipo II se define como la probabilidad de aceptar $H_0$ cuando era en realidad falsa, y la probabilidad $\beta$ de que ocurra depende de $H_1$\\
-Finalmente, el poder de un test se define como la probabilidad $(1-\beta$ de rechazar $H_0$ cuando era realmente falsa. El poder de un test depende de la cantidad de muestras, el nivel de 
+Por otro lado, el Error de Tipo II se define como la probabilidad de aceptar $H_0$ cuando era en realidad falsa, y la probabilidad $\beta$ de que ocurra depende de $H_1$.\\
+Finalmente, la potencia de un test se define como la probabilidad $(1-\beta)$ de rechazar $H_0$ cuando era realmente falsa. La potencia de un test depende de la cantidad de muestras, el nivel de 
 significancia y el tamaño del efecto. \\ Todas éstas definiciones se ejemplifican en la figura \ref{fig:test_de_hipotesis}.\cite{frodesen}
 
 \section{El problema}
@@ -134,109 +134,74 @@ calcularon los estadísticos $U_1$ y $U_2$. Luego, para cada par $m$ y $n$ se ob
 100 veces y se calculó el promedio del $p-value$ para cada par, como se muestra en la figura \ref{fig:pvalue}.\\
 Se observa que los $p-values$ obtenidos con ámbos tests son muy similares, y en ambos casos fue necesario tomar aproximadamente 900 muestras de cada distribución normal para obtener un $p-value < 
 0.05$.\\
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U1_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U2_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U1_02}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U2_02}
-    \end{subfigure} 
+
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/U1_U2}
+    \captionof{figure}{De izquierda y derecha y de arriba a abajo, P-Value para U1 y U2 para diferencia de medias de 0.1 y de 0.2 para distintos tamaños de muestra}
     \label{fig:pvalue}
-    \caption{P-Value para distintos tests, tamaños de muestra y efectos}
-\end{figure*}
-Se realizó el mismo proceso tomando muestras de $X \sim N(0.2, 1)$ y graficando el $p-value$, figura \ref{fig:pvalue_02}, y se encontró que con tomar alrededor de 300 muestras de cada distribución 
+\end{minipage}
+
+Se realizó el mismo proceso tomando muestras de $X \sim N(0.2, 1)$ graficando el $p-value$, y se encontró que con tomar alrededor de 300 muestras de cada distribución 
 normal era suficiente. Ésto concuerda con la dependencia del test con el tamaño del efecto. A un efecto mayor (mayor diferencia entre las medias), se requiere una menor cantidad de muestras para 
 obtener la significancia necesaria.\\
-Por otro lado, se midió el poder de cada test tomando 2000 muestras de $U1$ y $U2$ para cada $n$ y $m$, con $\mu_x > \mu_y$ y con $\mu_x < \mu_y$. En las figuras \ref{fig:histogramas_poder_01} y  
-\ref{fig:histogramas_poder_02} se observan histogramas para $n=m=100$, $n=m=500$ y $n=m=900$ para diferencia de medias de 0.1 y $n=m=10$, $n=m=100$ y $n=m=300$ para diferencia de medias de 0.2 
-respectivamente. En rojo, $x_c$.
+Por otro lado, se midió la potencia de cada test tomando 2000 muestras de $U1$ y $U2$ para cada $n$ y $m$, con $\mu_x > \mu_y$ y con $\mu_x < \mu_y$. En la figura \ref{fig:histogramas_poder} se 
+observan histogramas para $n=m=100$, $n=m=500$ y $n=m=900$ para diferencia de medias de 0.1 y $n=m=10$, $n=m=100$ y $n=m=300$ para diferencia de medias de 0.2 respectivamente. En rojo, $x_c$.\\
 
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_01_100}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_01_500}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_01_900}
-    \end{subfigure}
-    \label{fig:histogramas_poder_01}
-    \caption{Histogramas de $H_0$ y $H_1$ para test U1 con diferencia de media de 0.1 para n=m con n=100, 500 y 900 respectivamente. Se observa que las distribuciones se separan a medida que aumenta 
-el tamaño de la muestra.}
-\end{figure*}
-
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_02_10}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_02_100}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.3\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/histograma_U1_02_300}
-    \end{subfigure}
-    \label{fig:histogramas_poder_02}
-    \caption{Histogramas de $H_0$ y $H_1$ para test U1 con diferencia de media de 0.2 para n=m con n=10, 100 y 300 respectivamente. Se observa que las distribuciones se separan a medida que aumenta 
-el tamaño de la muestra.}
-\end{figure*}
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/histograma_U1}
+    \captionof{figure}{Histogramas de $H_0$ y $H_1$ para test U1 con diferencia de media de 0.1 para n=m con n=100, 500 y 900 respectivamente (arriba) y para diferencia de medias de 0.2 con n=m con 
+n=10, 100, 300. Se observa que las distribuciones se separan a medida que aumenta el tamaño de la muestra o el tamaño del efecto. En rojo, $x_c$.}
+    \label{fig:histogramas_poder}
+\end{minipage}
 
 Se verifica que a medida que aumenta el tamaño de las muestras, ambas distribuciones se separan. También se observa que a mayor efecto, menor cantidad de muestras alcanza para separar las 
-distribuciones. La figura \ref{fig:poder} muestra el poder de cada test y su dependencia con el tamaño de la muestra. Nuevamente, se observa que para tamaños de efecto mayores se requiere de una menor 
-cantidad de muestras para conseguir aumentar el poder del test.
+distribuciones. La figura \ref{fig:poder} muestra la potencia de cada test y su dependencia con el tamaño de la muestra. Nuevamente, se observa que para tamaños de efecto mayores se requiere de una 
+menor 
+cantidad de muestras para conseguir aumentar la potencia del test.
 
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U1_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U2_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U1_02}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U2_02}
-    \end{subfigure} 
-    \label{fig:pvalue}
-    \caption{Poder para distintos tests, tamaños de muestra y efectos}
-\end{figure*}
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/poder}
+    \captionof{figure}{De izquierda y derecha y de arriba a abajo, potencia para U1 y U2 para diferencia de medias de 0.1 y de 0.2 para distintos tamaños de muestra.}
+    \label{fig:poder}
+\end{minipage}
 
-Se observa además que basta con aumentar el tamaño de las muestras de $x$ para lograr aumentar la potencia del test.
+Se observa además que basta con aumentar el tamaño de las muestras de $x$ para lograr aumentar la potencia del test.\\
+Finalmente, se generaron las distribuciones de $U1$ para $H_0$ y $H_1$ tomando $20000$ muestras con una diferencia de media de 0.1 y n=m=100. Se calculó la probabilidad acumulada $p_i$ para cada 
+valor de $U1$ de la distribución $H_1$ cómo:
+
+\begin{equation}
+p_i=\int_{-\inf}^{U_i} f_X(t) dt
+\label{pi}
+\end{equation}
+
+tomando $f_X(t)$ como $U_1$ para $H_0$ y $H_1$. \\
+La figura \ref{fig:histograma_pi} muestra los histogramas de $p_i$ para $U_1$ bajo cada una de las hipótesis. 
+
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/histograma_pi}
+    \captionof{figure}{Histograma de $p_i$ para la distribución de $U_1$ para $H_0$ y $H_1$.}
+    \label{fig:histograma_pi}
+\end{minipage}
+
+Se observa que si la función que se está integrando es la distribución de la que proviene la variable aleatoria que se usa como límite de integración se obtiene un histograma uniforme, mientras que si 
+se utiliza la proveniente de $H_0$ se obtiene un histograma no uniforme. Es decir, cuanto menos uniforme sea el histograma de $p_i$ habrá más razones para rechazar $H_0$.
 
 \section{Conclusiones}
 
-
-\begin{acknowledgments}
-A. Rabinovich es becario doctoral del CONICET. 
-\end{acknowledgments}
+Ambos tests resultaron tener una potencia similar para testear a un nivel de significancia $\alpha=0.05$ la hipótesis $H_0$: $\mu_x \leq \mu_x$ contra $H_1$: $\mu_x > \mu_y$.\\
+La potencia en ambos casos resultó dependiente del tamaño de la muestra y del tamaño del efecto, verificándose que a mayor tamaño de efecto, menor cantidad de muestras requeridas para testear al 
+nivel de significancia deseado. Se encontró que para una diferencia en las medias de 0.1, se requieren más de 900 muestras de cada distribución normal para alcanzar una significancia de $\alpha=0.05$ 
+mientras que para una diferencia de medias de 0.2, alcanza con aproximadamente 300 muestras.\\
+Finalmente, fue posible además, distinguir las distribuciones de $U$ obtenidas bajo la hipótesis nula y la hipótesis alternativa a partir del estadístico $p_i$.
 
 \appendix
 \bibliography{examen}% Produces the bibliography via BibTeX.
+Todos los códigos utilizados para generar las muestras se pueden encontrar en:\\
+$https://github.com/andresrabinovich/examen\_estadistica$
 
 \end{document}
 

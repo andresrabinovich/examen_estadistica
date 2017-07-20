@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.5)  19 JUL 2017 18:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2017.4.5)  20 JUL 2017 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -497,11 +497,7 @@ Class revtex4-1 Info: multicol was not loaded (OK!) on input line 61.
 LaTeX Warning: Unused global option(s):
     [spanish].
 
-(./examen.aux
-
-LaTeX Warning: Label `fig:pvalue' multiply defined.
-
-)
+(./examen.aux)
 \openout1 = `examen.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
@@ -618,180 +614,88 @@ mr/m/n/10 cuando $\OML/cmm/m/it/10 U \OMS/cmsy/m/n/10 ^^U
  []
 
 
-Package caption Warning: \label without proper \caption on input line 225.
-See the caption package documentation for explanation.
+Underfull \hbox (badness 10000) in paragraph at lines 132--137
 
+ []
 
-LaTeX Warning: Reference `fig:pvalue' on page 1 undefined on input line 134.
+<../imagenes/U1_U2.png, id=3, 1173.6648pt x 884.5848pt>
+File: ../imagenes/U1_U2.png Graphic file (type png)
 
-<../imagenes/U1_01.png, id=3, 586.8324pt x 442.2924pt>
-File: ../imagenes/U1_01.png Graphic file (type png)
-
-<use ../imagenes/U1_01.png>
-Package pdftex.def Info: ../imagenes/U1_01.png used on input line 141.
+<use ../imagenes/U1_U2.png>
+Package pdftex.def Info: ../imagenes/U1_U2.png used on input line 140.
 (pdftex.def)             Requested size: 206.5472pt x 155.6685pt.
-
-<../imagenes/U2_01.png, id=4, 586.8324pt x 442.2924pt>
-File: ../imagenes/U2_01.png Graphic file (type png)
-
-<use ../imagenes/U2_01.png>
-Package pdftex.def Info: ../imagenes/U2_01.png used on input line 145.
-(pdftex.def)             Requested size: 206.5472pt x 155.6685pt.
-
-<../imagenes/U1_02.png, id=5, 586.8324pt x 442.2924pt>
-File: ../imagenes/U1_02.png Graphic file (type png)
-
-<use ../imagenes/U1_02.png>
-Package pdftex.def Info: ../imagenes/U1_02.png used on input line 149.
-(pdftex.def)             Requested size: 206.5472pt x 155.6685pt.
-
-<../imagenes/U2_02.png, id=6, 586.8324pt x 442.2924pt>
-File: ../imagenes/U2_02.png Graphic file (type png)
-
-<use ../imagenes/U2_02.png>
-Package pdftex.def Info: ../imagenes/U2_02.png used on input line 153.
-(pdftex.def)             Requested size: 206.5472pt x 155.6685pt.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../imagenes/test_de_hip
+otesis.png>]
+Underfull \hbox (badness 1484) in paragraph at lines 145--150
+\OT1/cmr/m/n/10 Por otro lado, se midi^^So la po-ten-cia de cada test
+ []
 
 
-LaTeX Warning: Reference `fig:pvalue_02' on page 1 undefined on input line 158.
+Underfull \hbox (badness 10000) in paragraph at lines 145--150
 
+ []
 
+<../imagenes/histograma_U1.jpeg, id=24, 1361.83781pt x 736.25063pt>
+File: ../imagenes/histograma_U1.jpeg Graphic file (type jpg)
 
-Package caption Warning: \label without proper \caption on input line 179.
-See the caption package documentation for explanation.
+<use ../imagenes/histograma_U1.jpeg>
+Package pdftex.def Info: ../imagenes/histograma_U1.jpeg used on input line 153.
 
+(pdftex.def)             Requested size: 206.5472pt x 111.65736pt.
 
-LaTeX Warning: Reference `fig:histogramas_poder_01' on page 1 undefined on inpu
-t line 161.
+<../imagenes/poder.jpeg, id=25, 907.89188pt x 736.25063pt>
+File: ../imagenes/poder.jpeg Graphic file (type jpg)
 
+<use ../imagenes/poder.jpeg>
+Package pdftex.def Info: ../imagenes/poder.jpeg used on input line 166.
+(pdftex.def)             Requested size: 206.5472pt x 167.49165pt.
 
-Package caption Warning: \label without proper \caption on input line 198.
-See the caption package documentation for explanation.
+<../imagenes/histograma_pi.jpeg, id=26, 453.94594pt x 368.1253pt>
+File: ../imagenes/histograma_pi.jpeg Graphic file (type jpg)
 
+<use ../imagenes/histograma_pi.jpeg>
+Package pdftex.def Info: ../imagenes/histograma_pi.jpeg used on input line 185.
 
-LaTeX Warning: Reference `fig:histogramas_poder_02' on page 1 undefined on inpu
-t line 162.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <../imagenes/test_de_hipo
-tesis.png>]
-<../imagenes/histograma_U1_01_100.jpeg, id=28, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_01_100.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_01_100.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_01_100.jpeg used on input li
-ne 169.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-<../imagenes/histograma_U1_01_500.jpeg, id=29, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_01_500.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_01_500.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_01_500.jpeg used on input li
-ne 173.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-<../imagenes/histograma_U1_01_900.jpeg, id=30, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_01_900.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_01_900.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_01_900.jpeg used on input li
-ne 177.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-<../imagenes/histograma_U1_02_10.jpeg, id=31, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_02_10.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_02_10.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_02_10.jpeg used on input lin
-e 188.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-<../imagenes/histograma_U1_02_100.jpeg, id=32, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_02_100.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_02_100.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_02_100.jpeg used on input li
-ne 192.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-<../imagenes/histograma_U1_02_300.jpeg, id=33, 453.94594pt x 368.1253pt>
-File: ../imagenes/histograma_U1_02_300.jpeg Graphic file (type jpg)
-
-<use ../imagenes/histograma_U1_02_300.jpeg>
-Package pdftex.def Info: ../imagenes/histograma_U1_02_300.jpeg used on input li
-ne 196.
-(pdftex.def)             Requested size: 137.70045pt x 111.6686pt.
-
-
-LaTeX Warning: Reference `fig:poder' on page 2 undefined on input line 204.
-
-<../imagenes/poder_U1_01.jpeg, id=34, 453.94594pt x 368.1253pt>
-File: ../imagenes/poder_U1_01.jpeg Graphic file (type jpg)
-
-<use ../imagenes/poder_U1_01.jpeg>
-Package pdftex.def Info: ../imagenes/poder_U1_01.jpeg used on input line 211.
 (pdftex.def)             Requested size: 206.5472pt x 167.49727pt.
+ [2 <../imagenes/U1_U2.png> <../imagenes/histograma_U1.jpeg> <../imagenes/poder
+.jpeg> <../imagenes/histograma_pi.jpeg>]
+Underfull \hbox (badness 3189) in paragraph at lines 195--200
+\OT1/cmr/m/n/10 tama~no de la mues-tra y del tama~no del efecto,
+ []
 
-<../imagenes/poder_U2_01.jpeg, id=35, 453.94594pt x 368.1253pt>
-File: ../imagenes/poder_U2_01.jpeg Graphic file (type jpg)
+(./examen.bbl)
+Overfull \hbox (18.70334pt too wide) in paragraph at lines 203--205
+\OML/cmm/m/it/10 https \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 ==github:com=andresra
+binovich=examen[]estadistica$ 
+ []
 
-<use ../imagenes/poder_U2_01.jpeg>
-Package pdftex.def Info: ../imagenes/poder_U2_01.jpeg used on input line 215.
-(pdftex.def)             Requested size: 206.5472pt x 167.49727pt.
-
-<../imagenes/poder_U1_02.jpeg, id=36, 453.94594pt x 368.1253pt>
-File: ../imagenes/poder_U1_02.jpeg Graphic file (type jpg)
-
-<use ../imagenes/poder_U1_02.jpeg>
-Package pdftex.def Info: ../imagenes/poder_U1_02.jpeg used on input line 219.
-(pdftex.def)             Requested size: 206.5472pt x 167.49727pt.
-
-<../imagenes/poder_U2_02.jpeg, id=37, 453.94594pt x 368.1253pt>
-File: ../imagenes/poder_U2_02.jpeg Graphic file (type jpg)
-
-<use ../imagenes/poder_U2_02.jpeg>
-Package pdftex.def Info: ../imagenes/poder_U2_02.jpeg used on input line 223.
-(pdftex.def)             Requested size: 206.5472pt x 167.49727pt.
- (./examen.bbl) [2 <../imagenes/U1_01.png> <../imagenes/U2_01.png> <../imagenes
-/U1_02.png> <../imagenes/U2_02.png>] [3 <../imagenes/histograma_U1_01_100.jpeg>
- <../imagenes/histograma_U1_01_500.jpeg> <../imagenes/histograma_U1_01_900.jpeg
-> <../imagenes/histograma_U1_02_10.jpeg> <../imagenes/histograma_U1_02_100.jpeg
-> <../imagenes/histograma_U1_02_300.jpeg> <../imagenes/poder_U1_01.jpeg> <../im
-agenes/poder_U2_01.jpeg> <../imagenes/poder_U1_02.jpeg> <../imagenes/poder_U2_0
-2.jpeg>] (./examen.aux)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: There were multiply-defined labels.
-
- ) 
+[3] (./examen.aux) ) 
 Here is how much of TeX's memory you used:
- 5897 strings out of 493105
- 82851 string characters out of 6137073
- 169398 words of memory out of 5000000
- 9252 multiletter control sequences out of 15000+600000
+ 5842 strings out of 493105
+ 81101 string characters out of 6137073
+ 166263 words of memory out of 5000000
+ 9207 multiletter control sequences out of 15000+600000
  9653 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,8n,41p,339b,409s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9
-.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb>
-Output written on examen.pdf (3 pages, 1803421 bytes).
+ 42i,6n,41p,458b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmb
+x9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pf
+b>
+Output written on examen.pdf (3 pages, 1346572 bytes).
 PDF statistics:
- 95 PDF objects out of 1000 (max. 8388607)
- 54 compressed objects within 1 object stream
+ 78 PDF objects out of 1000 (max. 8388607)
+ 51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

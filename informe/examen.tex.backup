@@ -57,7 +57,7 @@ spanish]{revtex4-1}
 %%total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot,
 %%height=10in,a5paper,hmargin={3cm,0.8in},
 %]{geometry}
-\graphicspath{ {imagenes/} }
+\graphicspath{ {../} }
 \begin{document}
 
 \preprint{APS/123-QED}
@@ -79,10 +79,7 @@ spanish]{revtex4-1}
              %  but any date may be explicitly specified
 
 \begin{abstract}
-Se estudió el comportamiento de una red 2D de spines utilizando el modelo de Ising y por medio de simulaciones Metrópolis-Montecarlo. Se obtuvo la magnetización, la energía media, el calor específico 
-y la susceptibilidad magnética para redes de $L=32$, $L=64$, $L=128$, $L=256$ para un hamiltoniano con interacciones ferromagnéticas a primeros vecinos. Se halló una transición de fase para 
-una temperatura crítica $T_c\approx2,36$ en buena concordancia con el valor teórico de $T_c\approx2,27$.
-Se estudió además el fenómeno de frustración magnética utilizando un hamiltoniano con interacciones antiferromagneticas a segundos vecinos.
+
 \end{abstract}
 
 \maketitle
@@ -100,14 +97,14 @@ $100\alpha\%$.\\
 \begin{minipage}{0.45\textwidth}									
 \centering
 \includegraphics[width=0.9\textwidth]{imagenes/test_de_hipotesis}
-\captionof{figure}{Ejemplo de Error de Tipo I, Error de Tipo II y poder de test. Tomado de Froedsen\cite{froedsen}.}
+\captionof{figure}{Ejemplo de Error de Tipo I, Error de Tipo II y potencia de test. Tomado de Frodsen\cite{frodesen}.}
 \label{fig:test_de_hipotesis}
 \end{minipage}
 
 De ésta definición se desprende que existe una probabilidad $\alpha$ de rechazar $H_0$ cuando era en realidad verdadera, error conocido como Error de Tipo I.\\
 Por otro lado, el Error de Tipo II se define como la probabilidad de aceptar $H_0$ cuando era en realidad falsa, y la probabilidad $\beta$ de que ocurra depende de $H_1$\\
-Finalmente, el poder de un test se define como la probabilidad $(1-\beta$ de rechazar $H_0$ cuando era realmente falsa. El poder de un test depende de la cantidad de muestras, el nivel de 
-significancia y el tamaño del efecto. \\ Todas éstas definiciones se ejemplifican en la figura \ref{fig:test_de_hipotesis}.\cite{froedsen}
+Finalmente, el potencia de un test se define como la probabilidad $(1-\beta$ de rechazar $H_0$ cuando era realmente falsa. El potencia de un test depende de la cantidad de muestras, el nivel de 
+significancia y el tamaño del efecto. \\ Todas éstas definiciones se ejemplifican en la figura \ref{fig:test_de_hipotesis}.\cite{frodesen}
 
 \section{El problema}
 Sean dos muestras independientes $X_1,...,X_m$ e $Y_1,...,Y_n$ con distribuciones gaussianas $N(\mu_x, \sigma^2)$ y $N(\mu_y, \sigma^2)$ con $\mu_x$, $\mu_y$, $\sigma$ desconocidas.\\
@@ -137,256 +134,74 @@ calcularon los estadísticos $U_1$ y $U_2$. Luego, para cada par $m$ y $n$ se ob
 100 veces y se calculó el promedio del $p-value$ para cada par, como se muestra en la figura \ref{fig:pvalue}.\\
 Se observa que los $p-values$ obtenidos con ámbos tests son muy similares, y en ambos casos fue necesario tomar aproximadamente 900 muestras de cada distribución normal para obtener un $p-value < 
 0.05$.\\
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U1_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U2_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U1_02}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/U2_02}
-    \end{subfigure} 
+
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/U1_U2}
+    \captionof{figure}{De izquierda y derecha y de arriba a abajo, P-Value para U1 y U2 para diferencia de medias de 0.1 y de 0.2 para distintos tamaños de muestra}
     \label{fig:pvalue}
-    \caption{P-Value para distintos tests, tamaños de muestra y efectos}
-\end{figure*}
-Se realizó el mismo proceso tomando muestras de $X \sim N(0.2, 1)$ y graficando el $p-value$, figura \ref{fig:pvalue_02}, y se encontró que con tomar alrededor de 300 muestras de cada distribución 
+\end{minipage}
+
+Se realizó el mismo proceso tomando muestras de $X \sim N(0.2, 1)$ graficando el $p-value$, y se encontró que con tomar alrededor de 300 muestras de cada distribución 
 normal era suficiente. Ésto concuerda con la dependencia del test con el tamaño del efecto. A un efecto mayor (mayor diferencia entre las medias), se requiere una menor cantidad de muestras para 
 obtener la significancia necesaria.\\
-Por otro lado, se midió el poder de cada test tomando 2000 muestras de $U1$ y $U2$ para cada $n$ y $m$, con $\mu_x > \mu_y$ y con $\mu_x < \mu_y$. En la figura \ref{fig:histogramas_poder} se 
-observan histogramas para $n=m=100$, $n=m=500$ y $n=m=900$. Se verifica que a medida que aumenta el tamaño de las muestras, ambas distribuciones se separan. También se observa que a mayor efecto, 
-menor cantidad de muestras alcanza para separar las distribuciones. La figura \ref{fig:poder} muestra el poder de cada test y su dependencia con el tamaño de la muestra. Nuevamente, se observa que 
-para tamaños de efecto mayores se requiere de una menor cantidad de muestras para conseguir aumentar el poder del test.
+Por otro lado, se midió la potencia de cada test tomando 2000 muestras de $U1$ y $U2$ para cada $n$ y $m$, con $\mu_x > \mu_y$ y con $\mu_x < \mu_y$. En la figura \ref{fig:histogramas_poder} se 
+observan histogramas para $n=m=100$, $n=m=500$ y $n=m=900$ para diferencia de medias de 0.1 y $n=m=10$, $n=m=100$ y $n=m=300$ para diferencia de medias de 0.2 respectivamente. En rojo, $x_c$.\\
 
-\begin{figure*}[t]
-    \centering
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U1_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U2_01}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U1_02}
-    \end{subfigure}
-    \begin{subfigure}[t]{0.45\textwidth}
-      \centering
-      \includegraphics[width=0.9\textwidth]{imagenes/poder_U2_02}
-    \end{subfigure} 
-    \label{fig:pvalue}
-    \caption{Poder para distintos tests, tamaños de muestra y efectos}
-\end{figure*}
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/histograma_U1}
+    \captionof{figure}{Histogramas de $H_0$ y $H_1$ para test U1 con diferencia de media de 0.1 para n=m con n=100, 500 y 900 respectivamente (arriba) y para diferencia de medias de 0.2 con n=m con 
+n=10, 100, 300. Se observa que las distribuciones se separan a medida que aumenta el tamaño de la muestra o el tamaño del efecto. En rojo, $x_c$.}
+    \label{fig:histogramas_poder}
+\end{minipage}
 
-Se observa además que basta con aumentar el tamaño de las muestras de $x$ para lograr aumentar la potencia del test.
+Se verifica que a medida que aumenta el tamaño de las muestras, ambas distribuciones se separan. También se observa que a mayor efecto, menor cantidad de muestras alcanza para separar las 
+distribuciones. La figura \ref{fig:poder} muestra la potencia de cada test y su dependencia con el tamaño de la muestra. Nuevamente, se observa que para tamaños de efecto mayores se requiere de una 
+menor 
+cantidad de muestras para conseguir aumentar la potencia del test.
 
-\begin{enumerate}
-\item{Se elige una configuración inicial de la red asignando 1 o -1 a cada spin de la misma de forma uniformenente aleatoria.}
-\item{Se elige una temperatura $T$.}
-\item{Se elige un spin de la red y se lo invierte (la elección puede ser aleatoria o secuencial).}
-\item{Se calcula la energía de la nueva configuración y se la compara con la energía de la configuración en el paso anterior.}
-\item{Si la energía disminuye, se acepta la nueva configuración del sistema.}
-\item{Si la misma no disminuye, se acepta el nuevo estado con probabilidad $e^{-\beta \Delta E}$}
-\item{Se itera desde el punto (3) K veces.}
-\end{enumerate}
+\begin{minipage}{0.45\textwidth}									
+\centering
+\includegraphics[width=0.9\textwidth]{imagenes/poder}
+    \captionof{figure}{De izquierda y derecha y de arriba a abajo, potencia para U1 y U2 para diferencia de medias de 0.1 y de 0.2 para distintos tamaños de muestra.}
+    \label{fig:poder}
+\end{minipage}
 
-En particular nos interesa calcular la energía por spin $u$ y la magnetización por spin $m$ estudiando su variación en función de la temperatura $T$.
-La energía se puede calcular como:
+Se observa además que basta con aumentar el tamaño de las muestras de $x$ para lograr aumentar la potencia del test.\\
+Finalmente, se generaron las distribuciones de $U1$ para $H_0$ y $H_1$ tomando $20000$ muestras con una diferencia de media de 0.1 y n=m=100. Se calculó la probabilidad acumulada $p_i$ para cada 
+valor de $U1$ de la distribución $H_1$ cómo:
 
 \begin{equation}
-u=\frac{\sum_{\nu}{E_{\nu}\ p_{\nu}}}{N}
-\label{energia}
+p_i=\int_{-\inf}^{U_i} f_X(t) dt
+\label{pi}
 \end{equation}
 
-Mientras que $m$ es:
-
-\begin{equation}
-m=\frac{\sum_{\nu}{M_{\nu}\ p_{\nu}}}{N}
-\label{magnetizacion}
-\end{equation}
-donde $M_{\nu}=\frac{\#s_{\nu}\uparrow-\#s_{\nu}\downarrow}{\#s}$
-
-Como cada valor de spín puede tomar únicamente dos valores, hay un total de $2^N$ estados para una red
-de $N$ espines, con lo cual calcular en forma exacta las ecuaciones (\ref{energia}) y (\ref{magnetizacion}) puede volverse computacionalmente
-costoso. Por ello, tomaremos en cuenta sólo los estados que contribuyan mayoritariamente, tal cual se discutió anteriormente.\\
-Teniendo eso en cuenta, la energía $u$ se puede calcular con la siguiente aproximación:
-
-\begin{equation}
-u=\frac{1}{NK}\sum_{i=1}^{K}{E_i},
-\label{emedia}
-\end{equation}
-
-donde $E_i$ es la energía obtenida en el i-ésimo paso.
-Análogamente para $m$:
-
-\begin{equation}
-m=\frac{1}{NK}\sum_{i=1}^{K}{M_i},
-\label{mmedia}
-\end{equation}
-
-Además puede demostrarse que la susceptibilidad magnética, definida como $\chi =\frac{\partial{M}}{\partial{B}}$ se puede calcular como:
-
-\begin{equation}
-\chi=\beta \left( \langle m^2 \rangle - \langle m \rangle ^2 \right)
-\label{ec:susc}
-\end{equation}
-
-y en forma análoga, el calor específico a volumen
-constante $c_v$ =$\frac{\partial{U}}{\partial{T}}$ se puede calcular como:
-
-\begin{equation}
-c_v = \beta ^2 \left(\langle u^2 \rangle -\langle u \rangle ^2 \right)
-\label{ec:calor}
-\end{equation}
-
-\section{Resultados}
-Las primeras muestras tomadas no son representativas del sistema físico ya que cada muestra difiere en solo
-un espín. Se debe dejar al sistema llegar al equilibrio, tomando un número de pasos suficientemente grande (idealmente infinito). 
-
-\subsection{Termalización}
-Al comenzar el algoritmo, el sistema se encuentra en punto del espacio de fases que no tiene porque ser un estado típico del sistema en equilibrio a una cierta temperatura. Después de hacer cierto número de flipeos (invertir un spin de la red), el sistema llega a encontrarse 
-en un punto del espacio de fases en el cual los valores de la energía del sistema rondan el valor más probable. A éste proceso se lo conoce como termalización. En la figura \ref{termalizacion} se muestra la termalización para una red de $L=256$, $J=J'=0$, $B=1$ y $T=5$. Se observa que a partir de aproximadamente 150000 pasos de montecarlo, la magnetización del sistema alcanza la magnetización teórica dada por $tanh(B)=tanh(1)\approx0.19$, por lo que se decidió termalizar todas las redes con 150000 flips.\\
-Debido a que los pasos de la temperatura utilizados en cada experiencia fueron de $\Delta T = 0.1$, comenzando desde $T=5$, fue suficiente termalizar al comienzo una única vez.
+tomando $f_X(t)$ como $U_1$ para $H_0$ y $H_1$. \\
+La figura \ref{fig:histograma_pi} muestra los histogramas de $p_i$ para $U_1$ bajo cada una de las hipótesis. 
 
 \begin{minipage}{0.45\textwidth}									
 \centering
-\includegraphics[totalheight=0.25\textheight]{imagenes/termalizacion/magnetizacion.png}
-\captionof{figure}{Termalización en una red de L = 256}
-\label{termalizacion}
+\includegraphics[width=0.9\textwidth]{imagenes/histograma_pi}
+    \captionof{figure}{Histograma de $p_i$ para la distribución de $U_1$ para $H_0$ y $H_1$.}
+    \label{fig:histograma_pi}
 \end{minipage}
 
-\subsection{Autocorrelación}
-Debido a que cada muestra difiere únicamente en un spin de la anterior, las muestras están altamente correlacionadas y pueden no resultar representativas. Para poder tomar entonces muestras representativas, se calculó el coeficiente de autocorrelación dado por:
-
-\begin{equation}
-\rho = \frac{\langle(x_i-\mu)(x_{i+k}-\mu)\rangle}{\langle(x_i-\mu)^2\rangle}
-\label{ec:autocorrelacion}
-\end{equation}
-
-con $x_i$ la magnetización o la energía en el paso i-esimo y $x_{i+k}$ en el paso i+k-esimo.\\
-Se calculó la autocorrelación tomando $k=0,...,30000$ para una red de $L=128$, $J=1$, $J'=0$, $B=0$ y para $T=5$, $T=3$ y $T=1.5$ y se graficó $\rho$ vs. $k$, figura \ref{fig:autocorrelacion}.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/autocorrelacion/energia.png}
-\captionof{figure}{Autocorrelación para una red de L=128}
-\label{fig:autocorrelacion}
-\end{minipage}
-
-Se observa que a partir de $k=15000$ la autocorrelación es cercana a cero para todas las temperaturas. Por lo tanto, se tomó una muestra cada 15000 iteraciones de metrópolis como muestra representativa.
-
-\subsection{Magnetización espontánea y susceptibilidad}
-Para una red de $L=128$, comenzando desde $T=5$ hasta $T=0.5$ y disminuyendo la temperatura con $\Delta T=0.1$, se realizaron 10000000 de iteraciones de MonteCarlo para cada temperatura, termalizando únicamente para $T=5$. Se tomaron aproximadamente 650 muestras por temperatura y con ellas se calculó la magnetización media por temperatura. Se graficó un histograma de las magnetizaciones obtenidas, cómo se visualiza en la figura \ref{fig:magnetizacion_sin_corona}.   
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/sin_corona/magnetizacion.png}
-\captionof{figure}{Magnetización media por partícula en función de la temperatura para una red de L=128}
-\label{fig:magnetizacion_sin_corona}
-\end{minipage}
-
-Se observa una distribución bimodal de la magnetización, lo que implica la existencia de una simetría en la magnetización espontanea, dado que resulta indistinto para el sistema que los spines se polaricen hacia arriba o hacia abajo.\\
-Para poder romper ésta simetría, se agregó una corona alrededor de la red con spines fijos apuntando hacia arriba. Para redes de tamaño infinito, la corona tiene medida nula y por lo tanto no modifica 
-los valores medios calculados. Sin embargo, alcanza para romper la simetría del sistema y lograr que la magnetización quede distribuida alrededor de uno solo de los mínimos.
-Se realizó el mismo cálculo anterior para redes de $L=32$, $L=64$, $L=128$ y $L=256$, obteniéndose los valores observados en la figura \ref{fig:magnetizacion_con_corona}
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/con_corona/magnetizacion.png}
-\captionof{figure}{Magnetización media por partícula en función de la temperatura para redes de distinto lado L}
-\label{fig:magnetizacion_con_corona}
-\end{minipage}
-
-La magnetización neta es máxima y constante para temperaturas bajas ($T<T_c$), correspondiente a un estado del sistema con todos
-los espines alineados al producirse la magnetización espontánea, y luego se ve una súbita disminución de la magnetización
-para temperaturas alrededor de la temperatura crítica $T_c$, para luego ser prácticamente nula para temperaturas mayores. Esto se corresponde con una alineación aleatoria de los spines producto de la agitación térmica del sistema.
-Análogamente al caso anterior, el cambio repentino de la magnetización se relaciona con una variación brusca en la susceptibilidad magnética. En la
-figura \ref{grafico_susceptibilidad_magnetica} se graficó la susceptibilidad en función de la temperatura, donde se observa un pico en los valores de temperatura en donde ocurre el cambio en la magnetización, en los valores esperados para la $T_c$.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-\includegraphics[totalheight=0.25\textheight]{imagenes/con_corona/susceptibilidad.png}
-\captionof{figure}{Susceptibilidad magnética por partícula en función de la temperatura para redes de distinto lado L}
-\label{grafico_susceptibilidad_magnetica}
-\end{minipage}
-
-\subsection{Energía media y calor específico}
-
-En la figura \ref{ref:grafico_energia} se graficó la energía media en función de la temperatura para redes de $L=32$, $L=64$, $L=128$ y $L=256$. Se observa nuevamente que a temperaturas bajas, el sistema presenta una energía mínima y constante. Esto sucede cuando los espines se alinean al presentarse una magnetización espontánea.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/con_corona/energia.png}
-\captionof{figure}{Energía media por partícula en función de la temperatura para redes de distinto lado L}
-\label{ref:grafico_energia}
-\end{minipage}
-
-Se observa que la energía comienza a aumentar para $T=1.5$ y alrededor de la $T_c$ se observa un brusco cambio de la energía del sistema junto con un cambio de concavidad en la curva de energía. Aumentando la temperatura respecto de la $T_c$, se obtiene un aumento monótono de
-la energía. Asociado a este cambio brusco en la energía alrededor de la $T_c$, debe existir un pico en el calor
-específico del sistema. En la figura \ref{grafico_capacidad_calorifica} se graficó el calor específico en función de la temperatura. Se observa un máximo alrededor de la temperatura $T_c$ para todas las redes.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/con_corona/cv.png}
-\captionof{figure}{Capacidad calorífica por partícula en función de la temperatura para redes de distinto lado L}
-\label{grafico_capacidad_calorifica}
-\end{minipage}
-
-Para encontrar la temperatura $T_c$, se ajustó por medio de un polinomio de grado 20 el calor específico para la red de L = 64. Luego se buscó el pico obteniéndose un máximo en $T_c\approx2.36$, en 
-buena concordancia con el calculado en \ref{T_c}. 
-En la figura \ref{capacidad_calorifica_con_ajuste_polinomial} se observa un gráfico del calor específico para la red de L = 64 y el polinomio de ajuste.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/con_corona/ajuste_cv.png}
-\captionof{figure}{Capacidad calorífica por partícula en función de la temperatura para una red de L = 64 y ajuste polinomial}
-\label{capacidad_calorifica_con_ajuste_polinomial}
-\end{minipage}
-
-\subsection{Hamiltoniano con segundos vecinos y fenómeno de frustración}
-El fenómeno de frustración es una característica de los sistemas magnéticos que lleva a estructuras complejas. Éste fenómeno se produce por un conflicto en la interacción entre spines en la red, en 
-donde la alineación de un spin con sus primeros vecinos reduce la energía de interacción entre ellos, pero la aumenta con sus segundos vecinos. Por ejemplo, en la red 2D, tomando un spin y suponiendo 
-que todos sus primeros vecinos apuntan hacia arriba y sus segundos vecinos apuntan hacia abajo, con acoplamientos ferromagneticos para sus primeros vecinos y anti para sus segundos, el spin es 
-frustrado porque cualquiera de sus dos orientaciones dan la misma energía. El spin no puede minimizar en simultaneo la energía con todos sus vecinos.\\
-Tomando en el hamiltoniano de \ref{hamiltoniano} $J=1$, $B=0$ y $J'=-1$ se obtiene un hamiltoniano con interacciones ferromagnéticas a primeros vecinos y antiferromagneticas a segundos vecinos, 
-para estudiar el fenómeno de frustración en el modelo de Ising.\\ 
-En la figura \ref{fig:frustracion} se graficó la magnetización media en función de la temperatura para una red de $L=64$. Se observa que no existe magnetización espontanea en el rango de temperaturas 
-estudiado.
-
-\begin{minipage}{0.45\textwidth}									
-\centering
-%\includegraphics[totalheight=0.25\textheight]{imagenes/frustracion/magnetizacion}
-\captionof{figure}{Magnetización por partícula en función de la temperatura para una red de L = 64 a segundos vecinos.}
-\label{fig:frustracion}
-\end{minipage}
-
-Ésto es consistente con la frustración magnética, producto de la incapacidad de minimizar la energía a primeros y segundos vecinos en simultaneo para las interacciones elegidas. 
+Se observa que si la función que se está integrando es la distribución de la que proviene la variable aleatoria que se usa como límite de integración se obtiene un histograma uniforme, mientras que si 
+se utiliza la proveniente de $H_0$ se obtiene un histograma no uniforme. Es decir, cuanto menos uniforme sea el histograma de $p_i$ habrá más razones para rechazar $H_0$.
 
 \section{Conclusiones}
-Se estudió el comportamiento de una red 2D de spines utilizando el modelo de Ising y por medio de simulaciones Metrópolis-Montecarlo. Se obtuvo la magnetización, la energía media, el calor específico 
-y la susceptibilidad magnética para redes de $L=32$, $L=64$, $L=128$, $L=256$ para un hamiltoniano con interacciones ferromagnéticas a primeros vecinos. Se encontró un salto en la magnetización 
-espontanea y una divergencia en el calor específico para una temperatura crítica $T_c$, señal de una transición de fase. Se halló que la transición de fase ocurre para temperaturas de 
-$T_c\approx2,36$ al ajustar por un polinomio el máximo del calor específico para una red de 64x64 spines, en concordancia con el valor teórico de $T_c\approx2,27$. La diferencia en las temperaturas 
-obtenidas puede ser atribuida a efectos de tamaño finito en las redes utilizadas.\\
-Se estudió además el fenómeno de frustración magnética utilizando un hamiltoniano con interacciones antiferromagneticas a segundos vecinos, obteniendose efectivamente una anulación de la 
-magnetización espontanea en el rango de temperaturas estudiado.
 
-\begin{acknowledgments}
-A. Rabinovich es becario doctoral del CONICET. 
-\end{acknowledgments}
+Ambos tests resultaron tener una potencia similar para testear a un nivel de significancia $\alpha=0.05$ la hipótesis $H_0$: $\mu_x \leq \mu_x$ contra $H_1$: $\mu_x > \mu_y$.\\
+La potencia en ambos casos resultó dependiente del tamaño de la muestra y del tamaño del efecto, verificándose que a mayor tamaño de efecto, menor cantidad de muestras requeridas para testear al 
+nivel de significancia deseado. Se encontró que para una diferencia en las medias de 0.1, se requieren más de 900 muestras de cada distribución normal para alcanzar una significancia de $\alpha=0.05$ 
+mientras que para una diferencia de medias de 0.2, alcanza con aproximadamente 300 muestras.\\
+Finalmente, fue posible además, distinguir las distribuciones de $U$ obtenidas bajo la hipótesis nula y la hipótesis alternativa a partir del estadístico $p_i$.
 
 \appendix
-\bibliography{ising}% Produces the bibliography via BibTeX.
+\bibliography{examen}% Produces the bibliography via BibTeX.
+Todos los códigos utilizados para generar las muestras se pueden encontrar en:\\
+$https://github.com/andresrabinovich/examen\_estadistica$
 
 \end{document}
 
